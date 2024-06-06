@@ -3,7 +3,7 @@ import { migrate } from "drizzle-orm/pglite/migrator";
 import { drizzle } from "drizzle-orm/pglite";
 import * as schema from "@/drizzle/schema.js";
 import { useEffect, useState } from "react";
-import migrations from "@/drizzle/migrations/0000_volatile_jasper_sitwell.sql?raw";
+import migrations from "./drizzle/migrations/0000_organic_silverclaw.sql?raw";
 import { user } from "./drizzle/schema.js";
 function App() {
 	const [db, setDb] = useState(null);
@@ -19,20 +19,22 @@ function App() {
 
 				console.log("Migrated");
 
-				const drizzleDb = drizzle(pgLiteClient, {schema});
-                
-                console.log(user)
-                console.log(drizzleDb)
+				const drizzleDb = drizzle(pgLiteClient, { schema });
 
-				const insertedUser = await drizzleDb.insert(user).values({
-					name: "Volatile",
-					surname: "Jasper",
-					email: "vjasper@example.com",
-					phone_number: "+1234567890",
-				}).returning();
+				console.log(user);
+				console.log(drizzleDb);
 
-                console.log(insertedUser)
-                
+				const insertedUser = await drizzleDb
+					.insert(user)
+					.values({
+						name: "Volatile",
+						surname: "Jasper",
+						email: "vjasper@example.com",
+						phone_number: "+1234567890",
+					})
+					.returning();
+
+				console.log(insertedUser);
 
 				setDb(drizzleDb);
 			} catch (err) {

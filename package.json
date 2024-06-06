@@ -4,7 +4,7 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "generate": "bunx --bun drizzle-kit generate",
+        "generate": "drizzle-kit generate",
         "dev": "bunx --bun vite",
         "build": "bunx --bun vite build",
         "preview": "bunx --bun vite preview"
@@ -16,7 +16,6 @@
         "@vitejs/plugin-react": "^4.3.0",
         "drizzle-kit": "^0.22.2",
         "drizzle-orm": "^0.31.1",
-        "electric-sql/pglite": "electric-sql/pglite",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "vite": "^5.2.12"
